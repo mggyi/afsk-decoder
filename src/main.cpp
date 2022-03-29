@@ -101,9 +101,9 @@ auto main(int argc, char** argv) -> int {
 
 	AfskDecoder decoder;
 
-	auto normalWriter = [](std::string msg) { cout << msg; };
-	auto redWriter = [](std::string msg) { cout << "\x1B[31m" << msg << "\033[0m"; };
-	auto magentaWriter = [](std::string msg) { cout << msg; };
+	std::function normalWriter = [](std::string msg) { cout << msg; };
+	std::function redWriter = [](std::string msg) { cout << "\x1B[31m" << msg << "\033[0m"; };
+	std::function magentaWriter = [](std::string msg) { cout << msg; };
 
 	decoder.decode(
 		move(filename),
